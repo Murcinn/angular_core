@@ -27,7 +27,8 @@ public class ValuesController : ControllerBase
         _commandDispatcher = commandDispatcher;
     }
 
-    [Authorize(Policies.Consumer)]
+    //[Authorize(Policies.Consumer)]
+    [AllowAnonymous]
     [HttpGet("samples")]
     public async Task<IActionResult> GetSamples([FromQuery] SampleParameter parameter)
     {
@@ -35,7 +36,8 @@ public class ValuesController : ControllerBase
         return Ok(result);
     }
 
-    [Authorize(Policies.Consumer)]
+    //[Authorize(Policies.Consumer)]
+    [AllowAnonymous]
     [HttpPost("samples")]
     public async Task<IActionResult> AddSamples([FromBody] AddSampleCommand command)
     {

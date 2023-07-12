@@ -25,13 +25,15 @@
         </a>
     </nav>
 
-    <nav *ngIf="authStatus$ | async">
+    <nav>
         <a mat-button
+            *ngIf="authStatus$ | async"
            routerLinkActive="menu-item-active"
            routerLink="/sample">
             <mat-icon>mood</mat-icon> Sample
         </a>
         <a mat-button
+            *ngIf="authStatus$ | async"
            routerLinkActive="menu-item-active"
            (click)="manageAccount()">
             <mat-icon>account_circle</mat-icon> Manage Account

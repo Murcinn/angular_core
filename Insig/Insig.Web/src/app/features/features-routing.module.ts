@@ -8,7 +8,6 @@ const routes: Routes = [
     {
         path: 'sample',
         component: SampleComponent,
-        canActivate: [AuthGuard]
     }
 ];
 
