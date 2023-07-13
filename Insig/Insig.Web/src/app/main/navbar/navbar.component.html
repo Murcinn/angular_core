@@ -6,6 +6,13 @@
     <span class="fill-remaining-space"></span>
 
     <a mat-button
+    routerLinkActive="menu-item-active"
+    [routerLinkActiveOptions]="{ exact: true }"
+    routerLink="/">
+     <mat-icon>fastfood</mat-icon> Restaurants
+     </a>
+
+    <a mat-button
        routerLinkActive="menu-item-active"
        [routerLinkActiveOptions]="{ exact: true }"
        routerLink="/">
