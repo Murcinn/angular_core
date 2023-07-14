@@ -10,7 +10,10 @@ import { SampleComponent } from './sample/sample.component';
 import { RestaurantsMainComponent } from './restaurants/restaurants-main/restaurants-main.component';
 import { RestaurantsFormComponent } from './restaurants/restaurants-form/restaurants-form.component';
 import { FormsModule } from '@angular/forms';
-import { RestaurantsListComponent } from '../restaurants-list/restaurants-list.component';
+import { RestaurantsListComponent } from './restaurants/restaurants-list/restaurants-list.component';
+import { PaginatorComponent } from './restaurants/paginator/paginator.component'
+
+
 
 @NgModule({
     imports: [
@@ -26,10 +29,14 @@ import { RestaurantsListComponent } from '../restaurants-list/restaurants-list.c
         SampleComponent,
         RestaurantsMainComponent,
         RestaurantsFormComponent,
-        RestaurantsListComponent
+        RestaurantsListComponent,
+        PaginatorComponent
     ],
     exports: [
         SampleComponent
-    ]
+    ],
+    providers: [],
+    bootstrap: [RestaurantsMainComponent]
+
 })
 export class FeaturesModule { }

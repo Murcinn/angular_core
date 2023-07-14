@@ -1,0 +1,27 @@
+.paginator {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .paginator a, .paginator span {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 0 2px;
+    background-color: #ddd;
+    color: #333;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
+  .paginator a:hover {
+    background-color: #bbb;
+  }
+
+  .paginator .active {
+    background-color: #333;
+    color: #fff;
+  }
+
