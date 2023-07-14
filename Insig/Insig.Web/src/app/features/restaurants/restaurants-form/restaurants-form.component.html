@@ -1,19 +1,48 @@
-
-<div class="form-window     display: flex;
-justify-content: center;
-align-items: center;">
+  <div class="form-window">
     <h2>Restaurant Form</h2>
-    <form (ngSubmit)="submitForm()">
-      <label>
-        First Name:
-        <input type="text" [(ngModel)]="firstName" name="firstName" required>
-      </label>
-      <br>
-      <label>
-        Last Name:
-        <input type="text" [(ngModel)]="lastName" name="lastName" required>
-      </label>
-      <br>
-      <button type="submit" class="button">Submit</button>
-    </form>
   </div>
+  <div class="form-window form-container">
+  <form (ngSubmit)="submitForm()">
+    <label>
+      Restaurant Name:
+      <input type="text" [(ngModel)]="restaurantName" name="restaurantName" required>
+    </label>
+    <br>
+    <label>
+      Location:
+      <input type="text" [(ngModel)]="location" name="location" required>
+    </label>
+    <br>
+    <label>
+      Restaurant Stars:
+      <input type="number" [(ngModel)]="stars" name="restaurantStars" min="1" max="10" required>
+    </label>
+    <br>
+    <label>
+      Average Price of Food:
+      <input type="number" [(ngModel)]="averagePrice" name="averagePrice" step="0.01" required>
+    </label>
+    <br>
+    <label>
+      Kitchen Type:
+      <select [(ngModel)]="kitchenType" name="kitchenType" required>
+        <option value="italian food">Mexican Cuisine</option>
+        <option value="american food">Indian Cuisine</option>
+        <option value="american food">Italian Cuisine</option>
+        <option value="american food">American Cuisine</option>
+        <option value="american food">Japanese Cuisine</option>
+        <option value="american food">Thai Cuisine</option>
+        <option value="american food">French Cuisine</option>
+        <option value="american food">Polish Cuisine</option>
+      </select>
+    </label>
+    <br>
+    <label>
+      Delivery Option:
+      <input type="checkbox" [(ngModel)]="delivery" name="deliveryOption">
+      Has Delivery Option
+    </label>
+    <br>
+    <button type="submit" class="button">Submit</button>
+  </form>
+</div>
