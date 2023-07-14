@@ -7,9 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./restaurants-main.component.scss']
 })
 export class RestaurantsMainComponent {
-  showForm = false;
 
-  openForm() {
-    this.showForm = true;
-  }
 }
