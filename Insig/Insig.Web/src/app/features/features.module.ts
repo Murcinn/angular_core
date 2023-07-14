@@ -10,6 +10,7 @@ import { SampleComponent } from './sample/sample.component';
 import { RestaurantsMainComponent } from './restaurants/restaurants-main/restaurants-main.component';
 import { RestaurantsFormComponent } from './restaurants/restaurants-form/restaurants-form.component';
 import { FormsModule } from '@angular/forms';
+import { RestaurantsListComponent } from '../restaurants-list/restaurants-list.component';
 
 @NgModule({
     imports: [
@@ -24,7 +25,8 @@ import { FormsModule } from '@angular/forms';
     declarations: [
         SampleComponent,
         RestaurantsMainComponent,
-        RestaurantsFormComponent
+        RestaurantsFormComponent,
+        RestaurantsListComponent
     ],
     exports: [
         SampleComponent
