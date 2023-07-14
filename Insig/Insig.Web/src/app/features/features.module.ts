@@ -7,6 +7,9 @@ import { LogoutModule } from './account/logout/logout.module';
 import { RegisterModule } from './account/register/register.module';
 import { FeaturesRoutingModule } from './features-routing.module';
 import { SampleComponent } from './sample/sample.component';
+import { RestaurantsMainComponent } from './restaurants/restaurants-main/restaurants-main.component';
+import { RestaurantsFormComponent } from './restaurants/restaurants-form/restaurants-form.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     imports: [
@@ -15,10 +18,13 @@ import { SampleComponent } from './sample/sample.component';
         MaterialModule,
         LoginModule,
         RegisterModule,
-        LogoutModule
+        LogoutModule,
+        FormsModule
     ],
     declarations: [
-        SampleComponent
+        SampleComponent,
+        RestaurantsMainComponent,
+        RestaurantsFormComponent
     ],
     exports: [
         SampleComponent
