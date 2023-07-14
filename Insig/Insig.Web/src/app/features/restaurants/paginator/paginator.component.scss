@@ -1,12 +1,13 @@
 .paginator {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 10px;
+    
   }
 
   .button {
     padding: 5px 10px;
-    background-color: #BC96E6;
+    background-color: #FAA307;
     color: white;
     font-size:medium;
     border: none;
@@ -16,7 +17,7 @@
     min-width: 100px;
 
     &:hover {
-        background-color: #D8B4E2;
+        background-color: #F48C06;
     }
 
   }
