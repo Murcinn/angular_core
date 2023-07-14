@@ -4,9 +4,9 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   selector: 'app-paginator',
   template: `
     <div class="paginator">
-      <button (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
-      <span>{{ currentPage }} / {{ totalPages }}</span>
-      <button (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages">Next</button>
+      <button class="button" (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+      <span class="span">{{ currentPage }} / {{ totalPages }}</span>
+      <button class="button" (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages">Next</button>
     </div>
   `,
   styleUrls: ['./paginator.component.scss']
