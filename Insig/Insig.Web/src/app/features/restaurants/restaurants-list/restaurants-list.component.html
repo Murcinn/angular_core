@@ -1,0 +1,31 @@
+<div class="restaurant-list">
+    <div class="title">
+      <h2>Restaurant List</h2>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Location</th>
+          <th>Stars</th>
+          <th>Average Price</th>
+          <th>Kitchen Type</th>
+          <th>Delivery</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let restaurant of displayedRestaurants">
+          <td>{{ restaurant.name }}</td>
+          <td>{{ restaurant.location }}</td>
+          <td>{{ restaurant.stars }}</td>
+          <td>{{ restaurant.averagePrice }}</td>
+          <td>{{ restaurant.kitchenType }}</td>
+          <td>{{ restaurant.delivery ? 'Yes' : 'No' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <app-paginator [currentPage]="currentPage" [itemsPerPage]="itemsPerPage" [totalItems]="restaurants.length"
+      (pageChanged)="onPageChange($event)"></app-paginator>
+  </div>
+  
