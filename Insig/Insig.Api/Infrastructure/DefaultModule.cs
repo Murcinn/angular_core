@@ -91,6 +91,11 @@ public class DefaultModule : Module
             builder,
             typeof(GetSampleUseCase).Assembly,
             "Insig.ApplicationServices.UseCases");
+
+        RegisterTransientDependenciesAutomatically(
+            builder,
+            typeof(GetRestaurantUseCase).Assembly,
+            "Insig.ApplicationServices.UseCases");
     }
 
     private static void RegisterQueries(ContainerBuilder builder)
@@ -99,6 +104,11 @@ public class DefaultModule : Module
             builder,
             typeof(SampleQuery).Assembly,
             "Insig.Infrastructure.Queries");
+
+        RegisterTransientDependenciesAutomatically(
+            builder,
+            typeof(RestaurantQuery).Assembly,
+            "Insig.Infrastructure.Queries");
     }
 
     private void RegisterRepositories(ContainerBuilder builder)
@@ -106,6 +116,11 @@ public class DefaultModule : Module
         RegisterTransientDependenciesAutomatically(
             builder,
             typeof(SampleRepository).Assembly,
+            "Insig.Infrastructure.Domain");
+
+        RegisterTransientDependenciesAutomatically(
+            builder,
+            typeof(RestaurantRepository).Assembly,
             "Insig.Infrastructure.Domain");
     }
 }

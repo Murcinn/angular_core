@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using EnsureThat;
 using Insig.Common.Auth;
@@ -11,14 +11,14 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Insig.Api.Controllers;
 
-[Route("values")]
+[Route("Restaurant")]
 [ApiController]
-public class ValuesController : ControllerBase
+public class RestaurantsController : ControllerBase
 {
     private readonly IQueryDispatcher _queryDispatcher;
     private readonly ICommandDispatcher _commandDispatcher;
 
-    public ValuesController(IQueryDispatcher queryDispatcher, ICommandDispatcher commandDispatcher)
+    public RestaurantsController(IQueryDispatcher queryDispatcher, ICommandDispatcher commandDispatcher)
     {
         EnsureArg.IsNotNull(queryDispatcher, nameof(queryDispatcher));
         EnsureArg.IsNotNull(commandDispatcher, nameof(commandDispatcher));
@@ -27,22 +27,21 @@ public class ValuesController : ControllerBase
         _commandDispatcher = commandDispatcher;
     }
 
-    //[Authorize(Policies.Consumer)]
+
     [AllowAnonymous]
-    [HttpGet("samples")]
-    public async Task<IActionResult> GetSamples([FromQuery] SampleParameter parameter)
+    [HttpGet("restaurants")]
+    public async Task<IActionResult> GetRestaurants([FromQuery] RestaurantParameter parameter)
     {
-        List<SampleDTO> result = await _queryDispatcher.Dispatch(parameter);
+        List<RestaurantDTO> result = await _queryDispatcher.Dispatch(parameter);
         return Ok(result);
     }
 
     //[Authorize(Policies.Consumer)]
     [AllowAnonymous]
-    [HttpPost("samples")]
-    public async Task<IActionResult> AddSamples([FromBody] AddSampleCommand command)
+    [HttpPost("restaurants")]
+    public async Task<IActionResult> AddRestaurants([FromBody] AddRestaurantCommand command)
     {
         await _commandDispatcher.Dispatch(command);
         return Ok();
     }
-
 }

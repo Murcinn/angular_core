@@ -10,7 +10,7 @@ export class RestaurantsFormComponent {
   location: string = '';
   stars!: number;
   averagePrice!: number;
-  kitchenType: string = 'italian';
+  cuisineType: string = 'italian';
   delivery: boolean = false;
 
   submitForm() {
@@ -19,7 +19,7 @@ export class RestaurantsFormComponent {
     console.log('Location:', this.location);
     console.log('Restaurant Stars:', this.stars);
     console.log('Average Price of Food:', this.averagePrice);
-    console.log('Kitchen Type:', this.kitchenType);
+    console.log('Kitchen Type:', this.cuisineType);
     console.log('Delivery Option:', this.delivery);
 
     // Reset form fields
@@ -27,7 +27,7 @@ export class RestaurantsFormComponent {
     this.location = '';
     this.stars = null!;
     this.averagePrice = null!;
-    this.kitchenType = 'italian';
+    this.cuisineType = 'italian';
     this.delivery = false;
   }
 }

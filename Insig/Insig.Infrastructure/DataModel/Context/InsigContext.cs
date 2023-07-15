@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Insig.Common.Auth;
 using Insig.Domain.Common;
 using Insig.Domain.Samples;
+using Insig.Domain.Restaurants;
 using Insig.Infrastructure.DataModel.Mappings;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -22,11 +23,16 @@ public class InsigContext : DbContext
         _currentUserService = currentUserService;
     }
 
+    public DbSet<Restaurant> Restaurants { get; set; }
+
     public DbSet<Sample> Samples { get; set; }
+
+   
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
         builder.ApplyConfiguration(new SampleConfiguration());
+        builder.ApplyConfiguration(new RestaurantConfiguration());
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
