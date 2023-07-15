@@ -10,7 +10,7 @@ export class RestaurantsFormComponent {
   location: string = '';
   stars!: number;
   averagePrice!: number;
-  cuisineType: string = 'italian';
+  cuisineType : string = 'italian';
   delivery: boolean = false;
 
   submitForm() {

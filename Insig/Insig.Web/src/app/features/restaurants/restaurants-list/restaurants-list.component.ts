@@ -20,9 +20,9 @@ export class RestaurantsListComponent implements OnInit {
   ngOnInit() {
   
     this.restaurants = [
-      { name: 'Restaurant 1', location: 'Location 1', stars: 4, averagePrice: 25.5, kitchenType: 'Italian', delivery: true },
-      { name: 'Restaurant 2', location: 'Location 2', stars: 3, averagePrice: 15.0, kitchenType: 'Indian', delivery: false },
-      { name: 'Restaurant 3', location: 'Location 3', stars: 5, averagePrice: 35.0, kitchenType: 'Mexican', delivery: true }
+      { name: 'Restaurant 1', location: 'Location 1', stars: 4, averagePrice: 25.5, cuisineType: 'Italian', delivery: true },
+      { name: 'Restaurant 2', location: 'Location 2', stars: 3, averagePrice: 15.0, cuisineType: 'Indian', delivery: false },
+      { name: 'Restaurant 3', location: 'Location 3', stars: 5, averagePrice: 35.0, cuisineType: 'Mexican', delivery: true }
     ];
 
 
@@ -50,6 +50,6 @@ interface Restaurant {
   location: string;
   stars: number;
   averagePrice: number;
-  kitchenType: string;
+  cuisineType: string;
   delivery: boolean;
 }
