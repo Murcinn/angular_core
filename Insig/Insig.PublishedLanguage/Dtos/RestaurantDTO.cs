@@ -9,5 +9,10 @@ namespace Insig.PublishedLanguage.Dtos
     public class RestaurantDTO
     {
         public string Name { get; set; }
+        public string Location { get; set; }
+        public int Star { get; set; }
+        public double AveragePrice { get; set; }
+        public string CouniseType { get; set; }
+        public string Delivery { get; set; }
     }
 }

@@ -15,19 +15,19 @@ namespace Insig.Infrastructure.Migrations
                 name: "Restaurant",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: true),
-                    Location = table.Column<string>(nullable: true),
-                    Stars = table.Column<int>(nullable: true),
-                    AveragePrice = table.Column<float>(nullable: true),
-                    CuisineType = table.Column<string>(nullable: true),
-                    Delivery = table.Column<string>(nullable: true),    
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Location = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Stars = table.Column<int>(type: "int", nullable: true),
+                    AveragePrice = table.Column<double>(type: "double", nullable: true),
+                    CuisineType = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Delivery = table.Column<string>(type: "nvarchar(max)", nullable: true),    
                 
-                    CreatedBy = table.Column<string>(nullable: true),
-                    CreatedOn = table.Column<DateTime>(nullable: false),
-                    UpdatedBy = table.Column<string>(nullable: true),
-                    UpdatedOn = table.Column<DateTime>(nullable: true)
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedOn = table.Column<DateTime>(type: "deltatime2", nullable: false),
+                    UpdatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UpdatedOn = table.Column<DateTime>(type: "deltatime2", nullable: true)
                 },
                 constraints: table =>
                 {

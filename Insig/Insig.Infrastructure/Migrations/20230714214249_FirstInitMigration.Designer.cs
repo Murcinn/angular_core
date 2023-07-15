@@ -36,14 +36,19 @@ namespace Insig.Infrastructure.Migrations
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Location")
                         .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Stars")
                         .HasColumnType("int");
+
                     b.Property<double>("AveragePrice")
                         .HasColumnType("double");
+
                     b.Property<string>("CuisineType")
                         .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Delivery")
                         .HasColumnType("nvarchar(max)");
 

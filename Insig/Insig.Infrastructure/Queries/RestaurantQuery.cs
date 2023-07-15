@@ -25,7 +25,7 @@ namespace Insig.Infrastructure.Queries
         public async Task<List<RestaurantDTO>> GetRestaurantData(RestaurantParameter query)
         {
             return await _sqlQueryBuilder
-                .Select("Name")
+                .Select("*")
                 .From("Restaurant")
                 .BuildQuery<RestaurantDTO>()
                 .ExecuteToList();
