@@ -1,4 +1,16 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ApiRestaurantService } from '@app/core/services/api-restaurant.service';
+import { switchMapTo } from "rxjs/operators";
+
+export interface Restaurant {
+  restaurantName: string;
+  location: string;
+  stars: number;
+  averagePrice: number;
+  cuisineType: string;
+  delivery: boolean;
+}
 
 @Component({
   selector: 'app-restaurants-form',
@@ -6,28 +18,39 @@ import { Component } from '@angular/core';
   styleUrls: ['./restaurants-form.component.scss']
 })
 export class RestaurantsFormComponent {
-  restaurantName: string = '';
-  location: string = '';
-  stars!: number;
-  averagePrice!: number;
-  cuisineType : string = 'italian';
-  delivery: boolean = false;
+  restaurant: Restaurant = {
+    restaurantName: '',
+    location: '',
+    stars: 0,
+    averagePrice: 0,
+    cuisineType: 'italian',
+    delivery: false
+  };
+  restaurants!: Observable<Restaurant[]>;
 
-  submitForm() {
-    // Handle form submission here
-    console.log('Restaurant Name:', this.restaurantName);
-    console.log('Location:', this.location);
-    console.log('Restaurant Stars:', this.stars);
-    console.log('Average Price of Food:', this.averagePrice);
-    console.log('Kitchen Type:', this.cuisineType);
-    console.log('Delivery Option:', this.delivery);
+  constructor(private _restaurantService: ApiRestaurantService) {}
 
-    // Reset form fields
-    this.restaurantName = '';
-    this.location = '';
-    this.stars = null!;
-    this.averagePrice = null!;
-    this.cuisineType = 'italian';
-    this.delivery = false;
+  addRestaurant(): void {
+    const newRestaurant: Restaurant = {
+      restaurantName: this.restaurant.restaurantName,
+      location: this.restaurant.location,
+      stars: this.restaurant.stars,
+      averagePrice: this.restaurant.averagePrice,
+      cuisineType: this.restaurant.cuisineType,
+      delivery: this.restaurant.delivery
+    };
+
+    this._restaurantService.addRestaurantData(newRestaurant).subscribe(() => {
+      this.restaurants = this._restaurantService.getRestaurantData();
+    });
+
+    this.restaurant = {
+      restaurantName: '',
+      location: '',
+      stars: 0,
+      averagePrice: 0,
+      cuisineType: 'italian',
+      delivery: false
+    };
   }
 }

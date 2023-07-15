@@ -2,30 +2,30 @@
     <h2>Restaurant Form</h2>
   </div>
   <div class="form-window form-container">
-  <form (ngSubmit)="submitForm()">
+  <form>
     <label>
       Restaurant Name:
-      <input type="text" [(ngModel)]="restaurantName" name="restaurantName" required>
+      <input type="text" [(ngModel)]="restaurant.restaurantName" name="restaurantName" required>
     </label>
     <br>
     <label>
       Location:
-      <input type="text" [(ngModel)]="location" name="location" required>
+      <input type="text" [(ngModel)]="restaurant.location" name="location" required>
     </label>
     <br>
     <label>
       Restaurant Stars:
-      <input type="number" [(ngModel)]="stars" name="restaurantStars" min="1" max="10" required>
+      <input type="number" [(ngModel)]="restaurant.stars" name="restaurantStars" min="1" max="10" required>
     </label>
     <br>
     <label>
       Average Price of Food($):
-      <input type="number" [(ngModel)]="averagePrice" name="averagePrice" step="0.01" required>
+      <input type="number" [(ngModel)]="restaurant.averagePrice" name="averagePrice" step="0.01" required>
     </label>
     <br>
     <label>
       Cuisine Type:
-      <select [(ngModel)]="cuisineType" name="kitchenType" required>
+      <select [(ngModel)]="restaurant.cuisineType" name="kitchenType" required>
         <option value="italian food">Mexican Cuisine</option>
         <option value="american food">Indian Cuisine</option>
         <option value="american food">Italian Cuisine</option>
@@ -39,12 +39,12 @@
     <br>
     <label>
       Delivery Option:
-      <input type="checkbox" [(ngModel)]="delivery" name="deliveryOption">
+      <input type="checkbox" [(ngModel)]="restaurant.delivery" name="deliveryOption">
       Has Delivery Option
     </label>
     <br>
     <div>
-    <button type="submit" class="button">Submit</button>
+    <button (click)="addRestaurant()" class="button">Submit</button>
     <button type="submit" class="button button1" onclick = "window.location.href='./restaurants'">Go Back</button>
     </div>
   </form>

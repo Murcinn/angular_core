@@ -49,7 +49,7 @@ namespace Insig.Infrastructure.Migrations
                     b.Property<string>("CuisineType")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Delivery")
+                    b.Property<bool>("Delivery")
                         .HasColumnType("nvarchar(max)");
 
 

@@ -13,6 +13,6 @@ namespace Insig.PublishedLanguage.Dtos
         public int Star { get; set; }
         public double AveragePrice { get; set; }
         public string CouniseType { get; set; }
-        public string Delivery { get; set; }
+        public bool Delivery { get; set; }
     }
 }

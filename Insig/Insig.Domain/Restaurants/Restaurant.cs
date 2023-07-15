@@ -6,7 +6,7 @@ namespace Insig.Domain.Restaurants;
 
 public class Restaurant : AuditableEntity
 {
-    public Restaurant(string name,string location, int stars, double averagePrice, string cuisineType, string delivery)
+    public Restaurant(string name,string location, int stars, double averagePrice, string cuisineType, bool delivery)
     {
         EnsureThatNameIsCorrect(name);
         
@@ -25,7 +25,7 @@ public class Restaurant : AuditableEntity
     public int Stars { get; private set; }
     public double AveragePrice{ get; private set; }
     public string CuisineType { get; private set; }
-    public string Delivery { get; private set; }
+    public bool Delivery { get; private set; }
 
 
     private void EnsureThatNameIsCorrect(string name)

@@ -4,6 +4,7 @@ using Insig.Infrastructure.DataModel.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Insig.Infrastructure.Migrations
 {
     [DbContext(typeof(InsigContext))]
-    partial class InsigContextModelSnapshot : ModelSnapshot
+    [Migration("20230715132559_test11")]
+    partial class test11
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -42,7 +45,7 @@ namespace Insig.Infrastructure.Migrations
                     b.Property<string>("CuisineType")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Delivery")
+                    b.Property<bool>("Delivery")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Location")
