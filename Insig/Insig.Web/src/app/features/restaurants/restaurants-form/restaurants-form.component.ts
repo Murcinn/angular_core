@@ -45,11 +45,15 @@ export class RestaurantsFormComponent  implements OnInit  {
       delivery: this.restaurant.delivery
     };
     
-    this.restaurants = this._restaurantService.addRestaurantData(newRestaurant)
-    .pipe(
-      switchMapTo(this._restaurantService.getRestaurantData())
-    );
+    // this.restaurants = this._restaurantService.addRestaurantData(newRestaurant)
+    // .pipe(
+    //   switchMapTo(this._restaurantService.getRestaurantData())
+    // );
 
+    
+    this._restaurantService.addRestaurantData(newRestaurant).subscribe(() => {
+      this.restaurants = this._restaurantService.getRestaurantData();
+      });
         this.restaurant = {
           
           name: '',

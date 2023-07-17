@@ -24,12 +24,7 @@ export class RestaurantsListComponent implements OnInit {
   constructor(private _restaurantService: ApiRestaurantService) {}
 
   ngOnInit(): void {
-    //this.restaurants = this._restaurantService.getRestaurantData();
-    //this.totalItems = this.restaurants.forEach.length;
-    // this.restaurants.subscribe(data => {
-    //   this.totalItems = data.length;
-    // });
-    this._restaurantService.getRestaurantData().subscribe(data => {
+      this._restaurantService.getRestaurantData().subscribe(data => {
       this.restaurants = this.getDisplayedRestaurants(data);
       this.totalItems = data.length;
     });

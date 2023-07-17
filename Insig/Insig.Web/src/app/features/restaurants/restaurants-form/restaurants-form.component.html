@@ -27,14 +27,15 @@
           <label>
             Cuisine Type:
             <select [(ngModel)]="restaurant.cuisineType" name="cuisineType" >
-              <option value="italian food">Mexican Cuisine</option>
-              <option value="american food">Indian Cuisine</option>
-              <option value="american food">Italian Cuisine</option>
+              <option value="mexican food">Mexican Cuisine</option>
+              <option value="indian food">Indian Cuisine</option>
+              <option value="italian food">Italian Cuisine</option>
               <option value="american food">American Cuisine</option>
-              <option value="american food">Japanese Cuisine</option>
-              <option value="american food">Thai Cuisine</option>
-              <option value="american food">French Cuisine</option>
-              <option value="american food">Polish Cuisine</option>
+              <option value="japanese food">Japanese Cuisine</option>
+              <option value="thai food">Thai Cuisine</option>
+              <option value="french food">French Cuisine</option>
+              <option value="polish food">Polish Cuisine</option>
+              <option value="turhisch food">Turhisch Cuisine</option>
             </select>
           </label>
           <br>
@@ -45,17 +46,7 @@
           </label>
           <br>
 
-          <ul>
-            <li *ngFor="let item of restaurants | async">
-              Name: {{ item.name }}
-              Location: {{ item.location }}
-              Stars: {{ item.stars }}
-              AveragePrice: {{ item.averagePrice }}
-              CuisineType: {{ item.cuisineType }}
-              Delivery: {{ item.delivery }}
 
-            </li>
-          </ul>
 
           <div>
             <button (click)="addRestaurant()" class="button" >Submit</button>
