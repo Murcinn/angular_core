@@ -6,7 +6,7 @@ using System;
 namespace Insig.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class test11 : Migration
+    public partial class ProperInitMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -22,7 +22,8 @@ namespace Insig.Infrastructure.Migrations
                     Stars = table.Column<int>(type: "int", nullable: true),
                     AveragePrice = table.Column<double>(type: "float", nullable: true),
                     CuisineType = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Delivery = table.Column<bool>(type: "nvarchar(max)", nullable: true),
+                    Delivery = table.Column<bool>(type: "bit", nullable: true),
+
                     CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),

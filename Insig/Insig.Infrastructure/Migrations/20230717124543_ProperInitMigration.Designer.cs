@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Insig.Infrastructure.Migrations
 {
     [DbContext(typeof(InsigContext))]
-    [Migration("20230715132559_test11")]
-    partial class test11
+    [Migration("20230717124543_ProperInitMigration")]
+    partial class ProperInitMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -46,7 +46,7 @@ namespace Insig.Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Delivery")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("bit");
 
                     b.Property<string>("Location")
                         .HasColumnType("nvarchar(max)");

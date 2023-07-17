@@ -83,6 +83,12 @@ namespace Insig.Api.Infrastructure
                 builder,
                 typeof(ValuesController).Assembly,
                 "Insig.Api.Controllers");
+            
+            RegisterTransientDependenciesAutomatically(
+                builder,
+                typeof(RestaurantsController).Assembly,
+                "Insig.Api.Controllers");
+
         }
 
         private static void RegisterUseCases(ContainerBuilder builder)
@@ -91,6 +97,7 @@ namespace Insig.Api.Infrastructure
                 builder,
                 typeof(GetSampleUseCase).Assembly,
                 "Insig.ApplicationServices.UseCases");
+
         }
 
         private static void RegisterQueries(ContainerBuilder builder)
@@ -99,6 +106,11 @@ namespace Insig.Api.Infrastructure
                 builder,
                 typeof(SampleQuery).Assembly,
                 "Insig.Infrastructure.Queries");
+
+            RegisterTransientDependenciesAutomatically(
+                builder,
+                typeof(RestaurantQuery).Assembly,
+                "Insig.Infrastructure.Queries");
         }
 
         private void RegisterRepositories(ContainerBuilder builder)
@@ -106,6 +118,11 @@ namespace Insig.Api.Infrastructure
             RegisterTransientDependenciesAutomatically(
                 builder,
                 typeof(SampleRepository).Assembly,
+                "Insig.Infrastructure.Domain");
+
+            RegisterTransientDependenciesAutomatically(
+                builder,
+                typeof(RestaurantRepository).Assembly,
                 "Insig.Infrastructure.Domain");
         }
     }

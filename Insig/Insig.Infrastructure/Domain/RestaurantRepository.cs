@@ -19,11 +19,11 @@ public class RestaurantRepository : IRestaurantRepository
 
     public void EnsureThatRestaurantDoesNotExist(string name)
     {
-        var restaurant = _context.Restaurants.FirstOrDefault(r => r.Name == name);
-        if (restaurant != null)
-        {
-            throw new DomainException($"Provided restaurant name: \"{name}\" already exist.");
-        }
+        //var restaurant = _context.Restaurants.FirstOrDefault(r => r.Name == name);
+        //if (restaurant != null)
+        //{
+        //    throw new DomainException($"Provided restaurant name: \"{name}\" already exist.");
+        //}
     }
 
     public void Store(Restaurant restaurant)

@@ -42,8 +42,8 @@ namespace Insig.Infrastructure.Migrations
                     b.Property<string>("CuisineType")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Delivery")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("Delivery")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Location")
                         .HasColumnType("nvarchar(max)");

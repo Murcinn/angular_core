@@ -1,10 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { switchMapTo } from 'rxjs/operators';
 import { ApiRestaurantService } from '@app/core/services/api-restaurant.service';
-import { switchMapTo } from "rxjs/operators";
 
-export interface Restaurant {
-  restaurantName: string;
+
+
+export interface RestaurantDto {
+  
+  name: string;
   location: string;
   stars: number;
   averagePrice: number;
@@ -17,22 +20,24 @@ export interface Restaurant {
   templateUrl: './restaurants-form.component.html',
   styleUrls: ['./restaurants-form.component.scss']
 })
-export class RestaurantsFormComponent {
-  restaurant: Restaurant = {
-    restaurantName: '',
+export class RestaurantsFormComponent  implements OnInit  {
+  restaurant: RestaurantDto = {
+    
+    name: '',
     location: '',
     stars: 0,
     averagePrice: 0,
-    cuisineType: 'italian',
+    cuisineType: '',
     delivery: false
   };
-  restaurants!: Observable<Restaurant[]>;
-
+  restaurants!: Observable<RestaurantDto[]>;
+  
   constructor(private _restaurantService: ApiRestaurantService) {}
 
   addRestaurant(): void {
-    const newRestaurant: Restaurant = {
-      restaurantName: this.restaurant.restaurantName,
+    const newRestaurant: RestaurantDto = {
+      
+      name: this.restaurant.name,
       location: this.restaurant.location,
       stars: this.restaurant.stars,
       averagePrice: this.restaurant.averagePrice,
@@ -40,17 +45,58 @@ export class RestaurantsFormComponent {
       delivery: this.restaurant.delivery
     };
 
-    this._restaurantService.addRestaurantData(newRestaurant).subscribe(() => {
-      this.restaurants = this._restaurantService.getRestaurantData();
-    });
+    // this._restaurantService.addRestaurantData(newRestaurant).subscribe(() => {
+    //   this.restaurants = this._restaurantService.getRestaurantData();
+      
+    // });
 
-    this.restaurant = {
-      restaurantName: '',
-      location: '',
-      stars: 0,
-      averagePrice: 0,
-      cuisineType: 'italian',
-      delivery: false
-    };
+
+    // this.restaurants = this._restaurantService.addRestaurantData(newRestaurant) 
+    // .pipe(
+    //   switchMapTo(this._restaurantService.getRestaurantData())
+    // );
+
+    
+  
+      const xddd : RestaurantDto = {
+        
+        name: 'Knajpka', 
+        location: 'Location', 
+        stars: 4, 
+        averagePrice: 25.5, 
+        cuisineType: 'Italian', 
+        delivery: true
+        }
+        
+
+    // this._restaurantService.addRestaurantData(xddd).subscribe(() => {
+    //   this.restaurants = this._restaurantService.getRestaurantData();
+      
+    // });
+
+    this.restaurants = this._restaurantService.addRestaurantData(newRestaurant)
+    .pipe(
+      switchMapTo(this._restaurantService.getRestaurantData())
+    );
+
+        this.restaurant = {
+          
+          name: '',
+          location: '',
+          stars: 0,
+          averagePrice: 0,
+          cuisineType: '',
+          delivery: false
+        };
   }
+
+
+
+  ngOnInit(): void {
+    this.restaurants = this._restaurantService.getRestaurantData();
+    this.restaurant.name='';
+    
+}
+
+
 }

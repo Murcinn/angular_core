@@ -21,7 +21,7 @@ namespace Insig.ApplicationServices.UseCases
         {
             _restaurantRepository.EnsureThatRestaurantDoesNotExist(command.Name);
 
-            _restaurantRepository.Store(new Restaurant(command.Name, command.Location, command.Star, command.AveragePrice, command.CouniseType, command.Delivery));
+            _restaurantRepository.Store(new Restaurant(command.Name, command.Location, command.Stars, command.AveragePrice, command.CuisineType, command.Delivery));
             await _unitOfWork.Save();
         }
     }

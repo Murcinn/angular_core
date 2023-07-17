@@ -10,9 +10,9 @@ namespace Insig.PublishedLanguage.Dtos
     {
         public string Name { get; set; }
         public string Location { get; set; }
-        public int Star { get; set; }
+        public int Stars { get; set; }
         public double AveragePrice { get; set; }
-        public string CouniseType { get; set; }
+        public string CuisineType { get; set; }
         public bool Delivery { get; set; }
     }
 }

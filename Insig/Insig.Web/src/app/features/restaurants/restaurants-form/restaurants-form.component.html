@@ -2,50 +2,68 @@
     <h2>Restaurant Form</h2>
   </div>
   <div class="form-window form-container">
-  <form>
-    <label>
-      Restaurant Name:
-      <input type="text" [(ngModel)]="restaurant.restaurantName" name="restaurantName" required>
-    </label>
-    <br>
-    <label>
-      Location:
-      <input type="text" [(ngModel)]="restaurant.location" name="location" required>
-    </label>
-    <br>
-    <label>
-      Restaurant Stars:
-      <input type="number" [(ngModel)]="restaurant.stars" name="restaurantStars" min="1" max="10" required>
-    </label>
-    <br>
-    <label>
-      Average Price of Food($):
-      <input type="number" [(ngModel)]="restaurant.averagePrice" name="averagePrice" step="0.01" required>
-    </label>
-    <br>
-    <label>
-      Cuisine Type:
-      <select [(ngModel)]="restaurant.cuisineType" name="kitchenType" required>
-        <option value="italian food">Mexican Cuisine</option>
-        <option value="american food">Indian Cuisine</option>
-        <option value="american food">Italian Cuisine</option>
-        <option value="american food">American Cuisine</option>
-        <option value="american food">Japanese Cuisine</option>
-        <option value="american food">Thai Cuisine</option>
-        <option value="american food">French Cuisine</option>
-        <option value="american food">Polish Cuisine</option>
-      </select>
-    </label>
-    <br>
-    <label>
-      Delivery Option:
-      <input type="checkbox" [(ngModel)]="restaurant.delivery" name="deliveryOption">
-      Has Delivery Option
-    </label>
-    <br>
-    <div>
-    <button (click)="addRestaurant()" class="button">Submit</button>
-    <button type="submit" class="button button1" onclick = "window.location.href='./restaurants'">Go Back</button>
-    </div>
+  <form >
+   
+          <label>
+            Restaurant Name:
+            <input type="text" [(ngModel)]="restaurant.name" name="restaurantName" >
+          </label>
+          <br>
+          <label>
+            Location:
+            <input type="text" [(ngModel)]="restaurant.location" name="location" >
+          </label>
+          <br>
+          <label>
+            Restaurant Stars:
+            <input type="number" [(ngModel)]="restaurant.stars" name="stars" min="1" max="10" >
+          </label>
+          <br>
+          <label>
+            Average Price of Food($):
+            <input type="number" [(ngModel)]="restaurant.averagePrice" name="averagePrice" step="0.01" >
+          </label>
+          <br>
+          <label>
+            Cuisine Type:
+            <select [(ngModel)]="restaurant.cuisineType" name="cuisineType" >
+              <option value="italian food">Mexican Cuisine</option>
+              <option value="american food">Indian Cuisine</option>
+              <option value="american food">Italian Cuisine</option>
+              <option value="american food">American Cuisine</option>
+              <option value="american food">Japanese Cuisine</option>
+              <option value="american food">Thai Cuisine</option>
+              <option value="american food">French Cuisine</option>
+              <option value="american food">Polish Cuisine</option>
+            </select>
+          </label>
+          <br>
+          <label>
+            Delivery Option:
+            <input type="checkbox" [(ngModel)]="restaurant.delivery" name="delivery">
+            Has Delivery Option
+          </label>
+          <br>
+
+          <ul>
+            <li *ngFor="let item of restaurants | async">
+              Name: {{ item.name }}
+              Location: {{ item.location }}
+              Stars: {{ item.stars }}
+              AveragePrice: {{ item.averagePrice }}
+              CuisineType: {{ item.cuisineType }}
+              Delivery: {{ item.delivery }}
+
+            </li>
+          </ul>
+
+          <div>
+            <button (click)="addRestaurant()" class="button" >Submit</button>
+            <button type="submit" class="button button1" onclick = "window.location.href='./restaurants'">Go Back</button>
+          </div>
+
+
+
   </form>
+
 </div>
