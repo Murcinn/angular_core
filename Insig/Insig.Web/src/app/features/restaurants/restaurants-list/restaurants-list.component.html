@@ -14,18 +14,18 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let restaurant of displayedRestaurants">
-          <td>{{ restaurant.name }}</td>
-          <td>{{ restaurant.location }}</td>
-          <td>{{ restaurant.stars }}</td>
-          <td>{{ restaurant.averagePrice }}</td>
-          <td>{{ restaurant.cuisineType}}</td>
-          <td>{{ restaurant.delivery ? 'Yes' : 'No' }}</td>
+        <tr *ngFor="let item of restaurants | async">
+          <td>{{ item.name }}</td>
+          <td>{{ item.location }}</td>
+          <td>{{ item.stars }}</td>
+          <td>{{ item.averagePrice }}</td>
+          <td>{{ item.cuisineType}}</td>
+          <td>{{ item.delivery ? 'Yes' : 'No' }}</td>
         </tr>
       </tbody>
     </table>
   
-    <app-paginator [currentPage]="currentPage" [itemsPerPage]="itemsPerPage" [totalItems]="restaurants.length"
+    <app-paginator [currentPage]="currentPage" [itemsPerPage]="itemsPerPage" [totalItems]="totalItems"
       (pageChanged)="onPageChange($event)"></app-paginator>
   </div>
   

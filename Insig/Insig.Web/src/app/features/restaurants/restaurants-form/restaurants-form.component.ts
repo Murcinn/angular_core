@@ -44,36 +44,7 @@ export class RestaurantsFormComponent  implements OnInit  {
       cuisineType: this.restaurant.cuisineType,
       delivery: this.restaurant.delivery
     };
-
-    // this._restaurantService.addRestaurantData(newRestaurant).subscribe(() => {
-    //   this.restaurants = this._restaurantService.getRestaurantData();
-      
-    // });
-
-
-    // this.restaurants = this._restaurantService.addRestaurantData(newRestaurant) 
-    // .pipe(
-    //   switchMapTo(this._restaurantService.getRestaurantData())
-    // );
-
     
-  
-      const xddd : RestaurantDto = {
-        
-        name: 'Knajpka', 
-        location: 'Location', 
-        stars: 4, 
-        averagePrice: 25.5, 
-        cuisineType: 'Italian', 
-        delivery: true
-        }
-        
-
-    // this._restaurantService.addRestaurantData(xddd).subscribe(() => {
-    //   this.restaurants = this._restaurantService.getRestaurantData();
-      
-    // });
-
     this.restaurants = this._restaurantService.addRestaurantData(newRestaurant)
     .pipe(
       switchMapTo(this._restaurantService.getRestaurantData())
@@ -89,7 +60,6 @@ export class RestaurantsFormComponent  implements OnInit  {
           delivery: false
         };
   }
-
 
 
   ngOnInit(): void {
