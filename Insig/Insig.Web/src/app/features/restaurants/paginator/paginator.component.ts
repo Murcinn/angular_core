@@ -2,13 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-paginator',
-  template: `
-    <div class="paginator">
-      <button class="button" (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
-      <span class="span">{{ currentPage }} / {{ totalPages }}</span>
-      <button class="button" (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages">Next</button>
-    </div>
-  `,
+  templateUrl: './paginator.component.html',
   styleUrls: ['./paginator.component.scss']
 })
 export class PaginatorComponent {

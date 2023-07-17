@@ -1,1 +1,5 @@
-<p>paginator works!</p>
+<div class="paginator">
+    <button mat-raised-button class="button" (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+    <span mat-raised-button class="span">{{ currentPage }} / {{ totalPages }}</span>
+    <button mat-raised-button class="button" (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages">Next</button>
+  </div>

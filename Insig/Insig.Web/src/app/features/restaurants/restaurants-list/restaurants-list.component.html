@@ -1,31 +1,40 @@
 <div class="restaurant-list">
-    <div class="title">
-      <h2>Restaurant List</h2>
-    </div>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Location</th>
-          <th>Stars</th>
-          <th>Average Price($)</th>
-          <th>Cuisine Type</th>
-          <th>Delivery</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let item of restaurants | async">
-          <td>{{ item.name }}</td>
-          <td>{{ item.location }}</td>
-          <td>{{ item.stars }}</td>
-          <td>{{ item.averagePrice }}</td>
-          <td>{{ item.cuisineType}}</td>
-          <td>{{ item.delivery ? 'Yes' : 'No' }}</td>
-        </tr>
-      </tbody>
-    </table>
-  
-    <app-paginator [currentPage]="currentPage" [itemsPerPage]="itemsPerPage" [totalItems]="totalItems"
-      (pageChanged)="onPageChange($event)"></app-paginator>
+  <div class="title">
+    <h2>Restaurant List</h2>
   </div>
-  
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Stars</th>
+        <th>Average Price($)</th>
+        <th>Cuisine Type</th>
+        <th>Delivery</th>
+        <th>Actions</th> <!-- Added column for buttons -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of restaurants | async">
+        <td>{{ item.name }}</td>
+        <td>{{ item.location }}</td>
+        <td>{{ item.stars }}</td>
+        <td>{{ item.averagePrice }}</td>
+        <td>{{ item.cuisineType }}</td>
+        <td>{{ item.delivery ? 'Yes' : 'No' }}</td>
+        <td>
+          <button mat-raised-button extended class="button button1">
+            <mat-icon>delete</mat-icon>
+            Delete</button>
+
+          <button mat-raised-button extended class="button">
+            <mat-icon>edit</mat-icon>
+            Edit</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <app-paginator [currentPage]="currentPage" [itemsPerPage]="itemsPerPage" [totalItems]="totalItems"
+    (pageChanged)="onPageChange($event)"></app-paginator>
+</div>

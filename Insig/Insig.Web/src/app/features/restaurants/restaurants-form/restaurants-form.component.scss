@@ -3,7 +3,7 @@
   }
   
   .form-window h2 {
-    font-size: 32px;
+    font-size:large;
     color: #6A040F; 
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -22,7 +22,7 @@
 
   .form-window.form-container label {
     display: block;
-    font-size: 18px;
+    font-size: large;
     margin-bottom: 12px;
     color: #333;
     text-align: center;
@@ -30,15 +30,10 @@
 
 
 .button {
-    padding: 10px 20px;
+
     background-color: #F48C06;
     color: white;
-    font-size: large;
-    border: none;
-    border-radius: 4px;
-    margin: 10px;
-    cursor: pointer;
-    min-width: 130px;
+
 
     &:hover {
         background-color: #E85D04;

@@ -54,6 +54,7 @@ export class RestaurantsFormComponent  implements OnInit  {
     this._restaurantService.addRestaurantData(newRestaurant).subscribe(() => {
       this.restaurants = this._restaurantService.getRestaurantData();
       });
+      
         this.restaurant = {
           
           name: '',

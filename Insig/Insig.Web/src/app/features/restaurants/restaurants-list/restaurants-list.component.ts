@@ -31,7 +31,6 @@ export class RestaurantsListComponent implements OnInit {
 
   }
 
-  
   onPageChange(page: number) {
     this.currentPage = page;
     this._restaurantService.getRestaurantData().subscribe(data => {
