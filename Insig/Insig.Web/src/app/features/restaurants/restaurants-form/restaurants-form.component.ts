@@ -33,6 +33,7 @@ export class RestaurantsFormComponent  implements OnInit  {
   };
   restaurants!: Observable<RestaurantDto[]>;
   _name: string="";
+  updateFlag:boolean=true;
   
 
 
@@ -77,14 +78,14 @@ ngOnInit(): void {
 
   this.activatedRoute.paramMap.subscribe((param: Params) => {
     this._name = param['get']('id') || '';
-    console.log("aaa:", this._name);
+    
 
     if (this._name !== '') {
       this.restaurants.subscribe((res: RestaurantDto[]) => {
         const foundRestaurant = res.find(r => r.name === this._name);
         if (foundRestaurant) {
           this.restaurant = foundRestaurant;
-          console.log("xd:", this.restaurant.name);
+          this.updateFlag=false;
         }
       });
     }

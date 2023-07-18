@@ -47,7 +47,7 @@
     </div>
 
     <div class="button-group">
-      <button mat-fab extended (click)="updateRestaurant()" class="button">
+      <button mat-fab extended (click)="updateFlag ? addRestaurant() : updateRestaurant() " class="button">
         <mat-icon>add_circle_outline</mat-icon>Submit
       </button>
 

@@ -50,17 +50,7 @@ export class RestaurantsListComponent implements OnInit {
     });
   }
     
-  
-  // editRestaurant(restaurantToEdit: RestaurantDto) {
-  //   let dialogRef = this.dialog.open(RestaurantsFormEditComponent);
-  //   let item = dialogRef.componentInstance;
-  //   item.name = restaurantToEdit.name;
-  //   item.restaurantToEdit = restaurantToEdit;
-  //   item.closeDialog.subscribe(() => console.log("fdfd"))
-  // }
 
-  
-  
   deleteRestaurant(name: string): void {
     const newRestaurant: RestaurantDto = {
       id:0,
@@ -84,16 +74,9 @@ export class RestaurantsListComponent implements OnInit {
         this.totalItems = data.length;
         this.restaurants = this.getDisplayedRestaurants(data);
       });
-    });
-      
+    });   
 
   }
-
-    xd(x:string):void{
-
-      console.log("xd ",x);
-    }
-
 
 }
 
