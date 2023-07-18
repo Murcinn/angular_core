@@ -1,56 +1,70 @@
 .form-window {
-    text-align: center;
-  }
-  
-  .form-window h2 {
-    font-size:large;
-    color: #6A040F; 
+  text-align: center;
+
+  h2 {
+    font-size: 2rem;
+    color: #6A040F;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 20px;
-    
   }
-
-.form-window.form-container {
-    background-color: #FFBA08;
-    padding: 20px;
-    max-width: 390px;
-    margin: 0 auto;    
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-
-  .form-window.form-container label {
-    display: block;
-    font-size: large;
-    margin-bottom: 12px;
-    color: #333;
-    text-align: center;
-  }
-
-
-.button {
-    padding: 10px 20px;
-    background-color: #F48C06;
-    color: white;
-    font-size: large;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin: 10px;
-    min-width:130px;
-
-
-    &:hover {
-        background-color: #E85D04;
-    }
-  }
-
-.button.button1 {
-    background-color: #D00000;
-    &:hover {
-        background-color: #9D0208;
-    }
-
 }
-  
+
+.form-container {
+  background-color: #FFBA08;
+  padding: 20px;
+  max-width: 390px;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+
+    label {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+      color: #333;
+      text-align: center;
+    }
+
+    input,
+    select {
+      padding: 8px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  }
+
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+
+    .button {
+      padding: 10px 20px;
+      background-color: #F48C06;
+      color: white;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      min-width: 130px;
+
+      &:hover {
+        background-color: #E85D04;
+      }
+    }
+
+    .button1 {
+      background-color: #D00000;
+
+      &:hover {
+        background-color: #9D0208;
+      }
+    }
+  }
+}

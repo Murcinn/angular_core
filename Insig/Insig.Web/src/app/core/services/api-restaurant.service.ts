@@ -20,14 +20,14 @@ export class ApiRestaurantService {
     return this._apiClientService.post(`${AppConfig.ApiUrl}/Restaurant/restaurants`, { data: restaurant });
   }
 
-  editRestaurantData(restaurant: RestaurantDto, updatedRestaurant: RestaurantDto): Observable<RestaurantDto> {
-    return this._apiClientService.patch(`${AppConfig.ApiUrl}/Restaurant/restaurants/${restaurant.name}`, { data: updatedRestaurant });
+  // editRestaurantData(restaurant: RestaurantDto, updatedRestaurant: RestaurantDto): Observable<RestaurantDto> {
+  //   return this._apiClientService.patch(`${AppConfig.ApiUrl}/Restaurant/restaurants/${restaurant.name}`, { data: updatedRestaurant });
+  // }
+
+
+  deleteRestaurantData(restaurant: RestaurantDto): Observable<RestaurantDto> {
+    return this._apiClientService.patch(`${AppConfig.ApiUrl}/Restaurant/restaurants`, { data: restaurant });
   }
-
-
-//   deleteRestaurantData(house: Restaurant): Observable<Restaurant> {
-//     return this._apiClientService.patch(`${appConfig.apiUrl}/Restaurant/restaurants`, { data: restaurant });
-//   }
 
 
 }

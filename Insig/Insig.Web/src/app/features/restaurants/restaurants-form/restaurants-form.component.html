@@ -1,64 +1,59 @@
-  <div class="form-window">
-    <h2>Restaurant Form</h2>
-  </div>
-  <div class="form-window form-container">
-  <form >
-   
-          <label>
-            Restaurant Name:
-            <input type="text" [(ngModel)]="restaurant.name" name="restaurantName" >
-          </label>
-          <br>
-          <label>
-            Location:
-            <input type="text" [(ngModel)]="restaurant.location" name="location" >
-          </label>
-          <br>
-          <label>
-            Restaurant Stars:
-            <input type="number" [(ngModel)]="restaurant.stars" name="stars" min="1" max="10" >
-          </label>
-          <br>
-          <label>
-            Average Price of Food($):
-            <input type="number" [(ngModel)]="restaurant.averagePrice" name="averagePrice" step="0.01" >
-          </label>
-          <br>
-          <label>
-            Cuisine Type:
-            <select [(ngModel)]="restaurant.cuisineType" name="cuisineType" >
-              <option value="mexican food">Mexican Cuisine</option>
-              <option value="indian food">Indian Cuisine</option>
-              <option value="italian food">Italian Cuisine</option>
-              <option value="american food">American Cuisine</option>
-              <option value="japanese food">Japanese Cuisine</option>
-              <option value="thai food">Thai Cuisine</option>
-              <option value="french food">French Cuisine</option>
-              <option value="polish food">Polish Cuisine</option>
-              <option value="turhisch food">Turhisch Cuisine</option>
-            </select>
-          </label>
-          <br>
-          <label>
-            Delivery Option:
-            <input type="checkbox" [(ngModel)]="restaurant.delivery" name="delivery">
-            Has Delivery Option
-          </label>
-          <br>
+<div class="form-window">
+  <h2>Restaurant Form</h2>
+</div>
 
+<div class="form-window form-container">
+  <form>
+    <div class="form-group">
+      <label for="restaurantName">Restaurant Name:</label>
+      <input type="text" [(ngModel)]="restaurant.name" name="restaurantName" id="restaurantName">
+    </div>
 
+    <div class="form-group">
+      <label for="location">Location:</label>
+      <input type="text" [(ngModel)]="restaurant.location" name="location" id="location">
+    </div>
 
-          <div>
-            <button mat-fab extended (click)="addRestaurant()" class="button" >
-              <mat-icon>add_circle_outline</mat-icon>Submit
-            </button>
-            <button mat-fab extended class="button button1" onclick = "window.location.href='./restaurants'">
-              <mat-icon>arrow_back</mat-icon>Back
-            </button>
-          </div>
+    <div class="form-group">
+      <label for="stars">Restaurant Stars:</label>
+      <input type="number" [(ngModel)]="restaurant.stars" name="stars" id="stars" min="1" max="10">
+    </div>
 
+    <div class="form-group">
+      <label for="averagePrice">Average Price of Food($):</label>
+      <input type="number" [(ngModel)]="restaurant.averagePrice" name="averagePrice" id="averagePrice" step="0.01">
+    </div>
 
+    <div class="form-group">
+      <label for="cuisineType">Cuisine Type:</label>
+      <select [(ngModel)]="restaurant.cuisineType" name="cuisineType" id="cuisineType">
+        <option value="mexican food">Mexican Cuisine</option>
+        <option value="indian food">Indian Cuisine</option>
+        <option value="italian food">Italian Cuisine</option>
+        <option value="american food">American Cuisine</option>
+        <option value="japanese food">Japanese Cuisine</option>
+        <option value="thai food">Thai Cuisine</option>
+        <option value="french food">French Cuisine</option>
+        <option value="polish food">Polish Cuisine</option>
+        <option value="turkish food">Turkish Cuisine</option>
+      </select>
+    </div>
 
+    <div class="form-group">
+      <label>
+        <input type="checkbox" [(ngModel)]="restaurant.delivery" name="delivery">
+        Has Delivery Option
+      </label>
+    </div>
+
+    <div class="button-group">
+      <button mat-fab extended (click)="addRestaurant()" class="button">
+        <mat-icon>add_circle_outline</mat-icon>Submit
+      </button>
+
+      <button mat-fab extended class="button button1" onclick="window.location.href='./restaurants'">
+        <mat-icon>arrow_back</mat-icon>Back
+      </button>
+    </div>
   </form>
-
 </div>

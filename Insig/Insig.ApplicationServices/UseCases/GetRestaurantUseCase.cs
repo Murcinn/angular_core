@@ -6,6 +6,7 @@ using Insig.Common.CQRS;
 using Insig.PublishedLanguage.Dtos;
 using Insig.PublishedLanguage.Queries;
 
+
 namespace Insig.ApplicationServices.UseCases
 {
     public class GetRestaurantUseCase : IQueryHandler<RestaurantParameter, List<RestaurantDTO>>
@@ -21,6 +22,8 @@ namespace Insig.ApplicationServices.UseCases
 
         public async Task<List<RestaurantDTO>> Handle(RestaurantParameter query)
         {
+
+            
             return await _restaurantQuery.GetRestaurantData(query);
         }
     }

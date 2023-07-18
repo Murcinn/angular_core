@@ -44,4 +44,13 @@ public class RestaurantsController : ControllerBase
         await _commandDispatcher.Dispatch(command);
         return Ok();
     }
+
+    [AllowAnonymous]
+    [HttpPatch("restaurants")]
+    public async Task<IActionResult> DeleteRestaurant([FromBody] DeleteRestaurantCommand command)
+    {
+        await _commandDispatcher.Dispatch(command);
+        return Ok();
+    }
+
 }

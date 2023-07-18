@@ -6,7 +6,7 @@ import { ApiRestaurantService } from '@app/core/services/api-restaurant.service'
 
 
 export interface RestaurantDto {
-  
+  id: number,
   name: string;
   location: string;
   stars: number;
@@ -22,7 +22,7 @@ export interface RestaurantDto {
 })
 export class RestaurantsFormComponent  implements OnInit  {
   restaurant: RestaurantDto = {
-    
+    id: 0,
     name: '',
     location: '',
     stars: 0,
@@ -36,7 +36,7 @@ export class RestaurantsFormComponent  implements OnInit  {
 
   addRestaurant(): void {
     const newRestaurant: RestaurantDto = {
-      
+      id: 0,
       name: this.restaurant.name,
       location: this.restaurant.location,
       stars: this.restaurant.stars,
@@ -56,7 +56,7 @@ export class RestaurantsFormComponent  implements OnInit  {
       });
       
         this.restaurant = {
-          
+          id: 0,
           name: '',
           location: '',
           stars: 0,
@@ -65,13 +65,31 @@ export class RestaurantsFormComponent  implements OnInit  {
           delivery: false
         };
   }
+  // addRestaurant(oldRestaurant: RestaurantDto,): void {
 
+  //   const newRestaurant: RestaurantDto = {
+  //     id: 0,
+  //     name: this.restaurant.name,
+  //     location: this.restaurant.location,
+  //     stars: this.restaurant.stars,
+  //     averagePrice: this.restaurant.averagePrice,
+  //     cuisineType: this.restaurant.cuisineType,
+  //     delivery: this.restaurant.delivery
+  //   };
+
+  //   this._restaurantService.editRestaurantData(oldRestaurant,newRestaurant).subscribe(() => {
+  //     this.restaurants = this._restaurantService.getRestaurantData();
+  //     });
+
+  // }
 
   ngOnInit(): void {
     this.restaurants = this._restaurantService.getRestaurantData();
     this.restaurant.name='';
     
 }
+
+
 
 
 }

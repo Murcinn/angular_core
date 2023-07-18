@@ -11,7 +11,8 @@ import { RestaurantsMainComponent } from './restaurants/restaurants-main/restaur
 import { RestaurantsFormComponent } from './restaurants/restaurants-form/restaurants-form.component';
 import { FormsModule } from '@angular/forms';
 import { RestaurantsListComponent } from './restaurants/restaurants-list/restaurants-list.component';
-import { PaginatorComponent } from './restaurants/paginator/paginator.component'
+import { PaginatorComponent } from './restaurants/paginator/paginator.component';
+import { RestaurantsFormEditComponent } from './restaurants/restaurants-form-edit/restaurants-form-edit.component'
 
 
 
@@ -30,13 +31,18 @@ import { PaginatorComponent } from './restaurants/paginator/paginator.component'
         RestaurantsMainComponent,
         RestaurantsFormComponent,
         RestaurantsListComponent,
-        PaginatorComponent
+        PaginatorComponent,
+        RestaurantsFormEditComponent
     ],
     exports: [
-        SampleComponent
+        SampleComponent,
+        RestaurantsListComponent,
+        RestaurantsFormEditComponent,
+        RestaurantsMainComponent
     ],
     providers: [],
-    bootstrap: [RestaurantsMainComponent]
+    bootstrap: [RestaurantsMainComponent],
+    entryComponents: [RestaurantsFormEditComponent]
 
 })
 export class FeaturesModule { }

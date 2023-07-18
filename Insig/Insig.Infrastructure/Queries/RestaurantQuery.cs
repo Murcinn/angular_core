@@ -27,6 +27,7 @@ namespace Insig.Infrastructure.Queries
             return await _sqlQueryBuilder
                 .Select("*")
                 .From("Restaurant")
+                .Where("Deleted","0")
                 .BuildQuery<RestaurantDTO>()
                 .ExecuteToList();
         }

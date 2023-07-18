@@ -1,6 +1,7 @@
 ﻿using EnsureThat;
 using Insig.Common.Exceptions;
 using Insig.Domain.Common;
+using System.Data;
 
 namespace Insig.Domain.Restaurants;
 
@@ -15,7 +16,9 @@ public class Restaurant : AuditableEntity
         Stars = stars;  
         AveragePrice = averagePrice;
         CuisineType = cuisineType;
-        Delivery = delivery;   
+        Delivery = delivery;
+
+        Deleted = false;
     }
 
     public int Id { get; }
@@ -26,6 +29,8 @@ public class Restaurant : AuditableEntity
     public double AveragePrice{ get; private set; }
     public string CuisineType { get; private set; }
     public bool Delivery { get; private set; }
+
+    public bool Deleted { get;  set; }
 
 
     private void EnsureThatNameIsCorrect(string name)

@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable, map } from 'rxjs';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
+import { Observable, map, switchMapTo } from 'rxjs';
 import { ApiRestaurantService } from '@app/core/services/api-restaurant.service';
 import { RestaurantDto } from '../restaurants-form/restaurants-form.component';
-
-
-
+import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { RestaurantsFormEditComponent } from '../restaurants-form-edit/restaurants-form-edit.component';
 
 
 @Component({
@@ -51,10 +51,47 @@ export class RestaurantsListComponent implements OnInit {
   }
     
   
-
+  // editRestaurant(restaurantToEdit: RestaurantDto) {
+  //   let dialogRef = this.dialog.open(RestaurantsFormEditComponent);
+  //   let item = dialogRef.componentInstance;
+  //   item.name = restaurantToEdit.name;
+  //   item.restaurantToEdit = restaurantToEdit;
+  //   item.closeDialog.subscribe(() => console.log("fdfd"))
+  // }
 
   
   
+  deleteRestaurant(name: string): void {
+    const newRestaurant: RestaurantDto = {
+      id:0,
+      name,
+      location: '',
+      stars:0 ,
+      averagePrice: 0 ,
+      cuisineType: '',
+      delivery: false 
+    };
+    
+    // this.restaurants = this._restaurantService.deleteRestaurantData(newRestaurant)
+    //   .pipe(
+    //     switchMapTo(this._restaurantService.getRestaurantData())
+                
+    //   );
+
+    this._restaurantService.deleteRestaurantData(newRestaurant).subscribe(() => {
+
+      this._restaurantService.getRestaurantData().subscribe(data => {
+        this.totalItems = data.length;
+        this.restaurants = this.getDisplayedRestaurants(data);
+      });
+    });
+      
+
+  }
+
+
+
+
 }
 
 
