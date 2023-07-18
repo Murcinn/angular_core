@@ -42,4 +42,14 @@ public class Restaurant : AuditableEntity
             throw new DomainException($"Restaurant value with name: {name} is not allowed.");
         }
     }
+    public void UpdateData(Restaurant restaurant)
+    {
+        EnsureThatNameIsCorrect(restaurant.Name);
+        
+        Location=restaurant.Location;
+        Stars=restaurant.Stars;
+        AveragePrice = restaurant.AveragePrice;
+        CuisineType=restaurant.CuisineType;
+        Delivery=restaurant.Delivery;
+    }
 }

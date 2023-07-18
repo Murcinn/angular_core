@@ -47,5 +47,12 @@ public class RestaurantRepository : IRestaurantRepository
         _context.Restaurants.Update(restaurantToDelete);
     }
 
+    public void Update(Restaurant restaurant, string itemName)
+    {
+        var restaurantUpdate = _context.Restaurants.FirstOrDefault(x => x.Name == itemName);
+        restaurantUpdate.UpdateData(restaurant);
+        _context.Restaurants.Update(restaurantUpdate);
+    }
+
 
 }

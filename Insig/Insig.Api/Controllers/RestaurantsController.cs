@@ -53,4 +53,12 @@ public class RestaurantsController : ControllerBase
         return Ok();
     }
 
+    [AllowAnonymous]
+    [HttpPut("restaurants")]
+    public async Task<IActionResult> UpdateRestaurant([FromBody] UpdateRestaurantCommand command)
+    {
+        await _commandDispatcher.Dispatch(command);
+        return Ok();
+    }
+
 }

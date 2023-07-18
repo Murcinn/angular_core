@@ -92,7 +92,34 @@ ngOnInit(): void {
 }
 
   
-  
+updateRestaurant(): void {
+  const updatedRestaurant: RestaurantDto = {
+    id: this.restaurant.id,
+    name: this.restaurant.name,
+    location: this.restaurant.location,
+    stars: this.restaurant.stars,
+    averagePrice: this.restaurant.averagePrice,
+    cuisineType: this.restaurant.cuisineType,
+    delivery: this.restaurant.delivery
+  };
+
+  this._restaurantService.updateRestaurantData(updatedRestaurant).subscribe(() => {
+    this.restaurants = this._restaurantService.getRestaurantData();
+  });
+
+  this.restaurant = {
+    id: 0,
+    name: '',
+    location: '',
+    stars: 0,
+    averagePrice: 0,
+    cuisineType: '',
+    delivery: false
+  };
+}
+
+
+
 
 }
 

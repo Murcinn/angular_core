@@ -10,5 +10,7 @@ public interface IRestaurantRepository
 
     public void Delete(string name);
 
+    public void Update(Restaurant restaurant, string itemName);
+
 
 }
