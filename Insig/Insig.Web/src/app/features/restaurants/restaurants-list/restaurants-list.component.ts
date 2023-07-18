@@ -89,7 +89,10 @@ export class RestaurantsListComponent implements OnInit {
 
   }
 
+    xd(x:string):void{
 
+      console.log("xd ",x);
+    }
 
 
 }

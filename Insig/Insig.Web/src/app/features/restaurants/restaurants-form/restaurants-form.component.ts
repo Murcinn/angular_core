@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { switchMapTo } from 'rxjs/operators';
 import { ApiRestaurantService } from '@app/core/services/api-restaurant.service';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 
 
@@ -31,8 +32,10 @@ export class RestaurantsFormComponent  implements OnInit  {
     delivery: false
   };
   restaurants!: Observable<RestaurantDto[]>;
+  _name: string="";
   
-  constructor(private _restaurantService: ApiRestaurantService) {}
+  constructor(private _restaurantService: ApiRestaurantService,private activatedRoute: ActivatedRoute,
+    private router: Router) {}
 
   addRestaurant(): void {
     const newRestaurant: RestaurantDto = {
@@ -65,31 +68,33 @@ export class RestaurantsFormComponent  implements OnInit  {
           delivery: false
         };
   }
-  // addRestaurant(oldRestaurant: RestaurantDto,): void {
-
-  //   const newRestaurant: RestaurantDto = {
-  //     id: 0,
-  //     name: this.restaurant.name,
-  //     location: this.restaurant.location,
-  //     stars: this.restaurant.stars,
-  //     averagePrice: this.restaurant.averagePrice,
-  //     cuisineType: this.restaurant.cuisineType,
-  //     delivery: this.restaurant.delivery
-  //   };
-
-  //   this._restaurantService.editRestaurantData(oldRestaurant,newRestaurant).subscribe(() => {
-  //     this.restaurants = this._restaurantService.getRestaurantData();
-  //     });
-
-  // }
+ 
 
   ngOnInit(): void {
     this.restaurants = this._restaurantService.getRestaurantData();
     this.restaurant.name='';
+
+
+    this.activatedRoute.paramMap.subscribe((param: Params) => {
+      this._name = param['get']('name') || '';
+    });
+
+    console.log("aaa:",this._name);
+    this._restaurantService
+      .editRestaurantData(this._name)
+      .subscribe((data: RestaurantDto) => {
+        this.restaurant = data;
+      });
+  }
+  
+  
+
+
+  
     
 }
 
 
 
 
-}
+

@@ -13,6 +13,7 @@ const routes: Routes = [
         {path: 'restaurants' ,component:RestaurantsMainComponent},
         {path: 'restaurantsform' ,component:RestaurantsFormComponent},
         {path: 'restaurantslist' ,component:RestaurantsListComponent},
+        {path: 'restaurantsform/:id' ,component:RestaurantsFormComponent},
 ];
 
 @NgModule({
