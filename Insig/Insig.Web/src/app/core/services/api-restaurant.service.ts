@@ -23,8 +23,8 @@ export class ApiRestaurantService {
   // editRestaurantData(restaurant: RestaurantDto, updatedRestaurant: RestaurantDto): Observable<RestaurantDto> {
   //   return this._apiClientService.patch(`${AppConfig.ApiUrl}/Restaurant/restaurants/${restaurant.name}`, { data: updatedRestaurant });
   // }
-  editRestaurantData(_name:string):Observable<RestaurantDto>{
-    return this._apiClientService.get(`${AppConfig.ApiUrl}/Restaurant/restaurants/${_name}`);
+  editRestaurantData():Observable<RestaurantDto>{
+    return this._apiClientService.get(`${AppConfig.ApiUrl}/Restaurant/restaurants/`);
   }
 
   deleteRestaurantData(restaurant: RestaurantDto): Observable<RestaurantDto> {

@@ -34,6 +34,8 @@ export class RestaurantsFormComponent  implements OnInit  {
   restaurants!: Observable<RestaurantDto[]>;
   _name: string="";
   
+
+
   constructor(private _restaurantService: ApiRestaurantService,private activatedRoute: ActivatedRoute,
     private router: Router) {}
 
@@ -72,26 +74,34 @@ export class RestaurantsFormComponent  implements OnInit  {
 
   ngOnInit(): void {
     this.restaurants = this._restaurantService.getRestaurantData();
-    this.restaurant.name='';
+    
 
+    if(this._name!=null){
+      this.activatedRoute.paramMap.subscribe((param: Params) => {
+        this._name = param['get']('id') || '';
+        console.log("aaa:", this._name);
 
-    this.activatedRoute.paramMap.subscribe((param: Params) => {
-      this._name = param['get']('name') || '';
-    });
+        this._restaurantService.editRestaurantData().subscribe((data: RestaurantDto) => {
+          this.restaurant = data;
+          console.log("bbb:", this.restaurant);
 
-    console.log("aaa:",this._name);
-    this._restaurantService
-      .editRestaurantData(this._name)
-      .subscribe((data: RestaurantDto) => {
-        this.restaurant = data;
+        });
       });
+
+      this.restaurants.subscribe((res: RestaurantDto[]) => {
+        const foundRestaurant = res.find(r => r.name === this._name);
+        if (foundRestaurant) {
+          this.restaurant = foundRestaurant;
+          console.log("xd:", this.restaurant.name);
+        } 
+          
+      });
+    }
+    
   }
   
   
 
-
-  
-    
 }
 
 
