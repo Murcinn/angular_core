@@ -13,7 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { RestaurantsListComponent } from './restaurants/restaurants-list/restaurants-list.component';
 import { PaginatorComponent } from './restaurants/paginator/paginator.component';
 import { RestaurantsFormEditComponent } from './restaurants/restaurants-form-edit/restaurants-form-edit.component'
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -24,7 +24,9 @@ import { RestaurantsFormEditComponent } from './restaurants/restaurants-form-edi
         LoginModule,
         RegisterModule,
         LogoutModule,
-        FormsModule
+        FormsModule,
+        ReactiveFormsModule
+
     ],
     declarations: [
         SampleComponent,
@@ -46,3 +48,4 @@ import { RestaurantsFormEditComponent } from './restaurants/restaurants-form-edi
 
 })
 export class FeaturesModule { }
+export class AppModule { }

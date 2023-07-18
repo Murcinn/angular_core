@@ -1,11 +1,16 @@
 <div class="restaurant-list">
   <div class="title">
     <h2>Restaurant</h2>
-    <div >
-      <button mat-raised-button class="filter-button" >
+    <div>
+      <button mat-raised-button class="filter-button" (click)="toggleFilters()">
         <mat-icon>filter_list</mat-icon>
         Filter Elements
       </button>
+      <div *ngIf="filtersOpen.value" class="filter-fields">
+        <input type="text" placeholder="Restaurant Name" [formControl]="nameFilterControl">
+        <input type="number" placeholder="Stars" [formControl]="starsFilterControl">
+        <input type="text" placeholder="Restaurant Location" [formControl]="locationFilterControl">
+      </div>
     </div>
   </div>
   <table>
