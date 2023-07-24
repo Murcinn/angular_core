@@ -4,9 +4,11 @@
 
 <div class="form-window form-container">
   <form>
-    <div class="form-group">
+    <div class="form-group" >
       <label for="restaurantName">Restaurant Name:</label>
-      <input type="text" [(ngModel)]="restaurant.name" name="restaurantName" id="restaurantName">
+      <input
+        type="text" [(ngModel)]="restaurant.name" name="restaurantName" id="restaurantName">
+      <span *ngIf="isNameEmpty" class="error-msg">Restaurant name is necessary</span>
     </div>
 
     <div class="form-group">

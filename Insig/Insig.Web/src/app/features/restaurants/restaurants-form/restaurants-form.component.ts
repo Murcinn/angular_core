@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { switchMapTo } from 'rxjs/operators';
 import { ApiRestaurantService } from '@app/core/services/api-restaurant.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 
 export interface RestaurantDto {
@@ -34,11 +34,11 @@ export class RestaurantsFormComponent  implements OnInit  {
   restaurants!: Observable<RestaurantDto[]>;
   _name: string="";
   updateFlag:boolean=true;
-  
+  isNameEmpty: boolean = false;
+  isNameAtBase: boolean = false;
 
 
-  constructor(private _restaurantService: ApiRestaurantService,private activatedRoute: ActivatedRoute,
-    private router: Router) {}
+  constructor(private _restaurantService: ApiRestaurantService,private activatedRoute: ActivatedRoute) {}
 
   addRestaurant(): void {
     const newRestaurant: RestaurantDto = {
@@ -50,7 +50,10 @@ export class RestaurantsFormComponent  implements OnInit  {
       cuisineType: this.restaurant.cuisineType,
       delivery: this.restaurant.delivery
     };
-    
+    if (!this.restaurant.name) {
+      this.isNameEmpty = true;
+      return; 
+    }
     // this.restaurants = this._restaurantService.addRestaurantData(newRestaurant)
     // .pipe(
     //   switchMapTo(this._restaurantService.getRestaurantData())
